@@ -4,12 +4,62 @@
   "private": true,
   "description": "Desktop CPS tester optimized for high click rates",
   "main": "main.js",
+  "author": "hdlolhf",
   "scripts": {
     "start": "electron .",
-    "build:mac": "electron-packager . \"Turbo CPS Tester\" --platform=darwin --overwrite --out=dist --app-bundle-id=com.ethyck.turbocpstester --prune=true"
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "dist:mac": "electron-builder --mac dmg zip",
+    "dist:win": "electron-builder --win nsis portable"
   },
   "devDependencies": {
     "electron": "^37.2.1",
-    "electron-packager": "^17.1.2"
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.hdlolhf.turbocpstester",
+    "productName": "Turbo CPS Tester",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "index.html",
+      "main.js",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.games",
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "dmg": {
+      "artifactName": "${productName}-${version}-${arch}.${ext}"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "${productName}-${version}-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Turbo CPS Tester"
+    }
   }
 }

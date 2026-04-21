@@ -17,8 +17,21 @@ npm install
 npm start
 ```
 
-## Build macOS app
+## Build installers
 
 ```bash
-npm run build:mac
+npm run dist:mac
 ```
+
+```bash
+npm run dist:win
+```
+
+## GitHub Actions
+
+The repository includes a workflow at `.github/workflows/build-installers.yml`.
+
+- Run it manually with `workflow_dispatch`, or
+- create a tag like `v1.0.1` and push it to trigger macOS and Windows installer builds
+
+The workflow uploads build artifacts for both platforms.
