@@ -19,6 +19,7 @@
   "build": {
     "appId": "com.hdlolhf.turbocpstester",
     "productName": "Turbo CPS Tester",
+    "publish": "never",
     "directories": {
       "output": "release"
     },
@@ -55,11 +56,15 @@
       "artifactName": "${productName}-${version}-${arch}.${ext}"
     },
     "nsis": {
+      "artifactName": "${productName}-Setup-${version}-${arch}.${ext}",
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
       "shortcutName": "Turbo CPS Tester"
+    },
+    "portable": {
+      "artifactName": "${productName}-Portable-${version}-${arch}.${ext}"
     }
   }
 }
