@@ -1,0 +1,15 @@
+{
+  "name": "turbo-cps-tester",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Desktop CPS tester optimized for high click rates",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:mac": "electron-packager . \"Turbo CPS Tester\" --platform=darwin --overwrite --out=dist --app-bundle-id=com.ethyck.turbocpstester --prune=true"
+  },
+  "devDependencies": {
+    "electron": "^37.2.1",
+    "electron-packager": "^17.1.2"
+  }
+}
