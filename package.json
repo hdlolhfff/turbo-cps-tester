@@ -7,10 +7,10 @@
   "author": "hdlolhf",
   "scripts": {
     "start": "electron .",
-    "pack": "electron-builder --dir",
-    "dist": "electron-builder",
-    "dist:mac": "electron-builder --mac dmg zip",
-    "dist:win": "electron-builder --win nsis portable"
+    "pack": "electron-builder --dir --publish never",
+    "dist": "electron-builder --publish never",
+    "dist:mac": "electron-builder --mac dmg zip --publish never",
+    "dist:win": "electron-builder --win nsis portable --publish never"
   },
   "devDependencies": {
     "electron": "^37.2.1",
@@ -19,7 +19,6 @@
   "build": {
     "appId": "com.hdlolhf.turbocpstester",
     "productName": "Turbo CPS Tester",
-    "publish": "never",
     "directories": {
       "output": "release"
     },
